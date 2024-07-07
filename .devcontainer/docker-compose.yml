@@ -1,0 +1,18 @@
+services:
+  dev:
+    # image: golang:1.22.5-alpine3.20
+    build:
+      context: ./docker/go
+      args:
+        TIME_ZONE: ${TIME_ZONE-UTC}
+    # environment:
+    #   - TZ=${TIME_ZONE-UTC}
+    tty: true
+    stdin_open: true
+    volumes:
+      - ../:/go
+
+networks:
+  default:
+    name: dev-net
+    external: true
