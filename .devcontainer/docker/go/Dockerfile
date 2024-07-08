@@ -9,3 +9,5 @@ RUN apk update && \
 
 FROM alpine:3.20.1
 COPY --from=0 /go/src/mkcert/mkcert /usr/local/bin
+RUN apk update && \
+    apk add git openssl
